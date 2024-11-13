@@ -8,24 +8,22 @@ interface FooterProps {
   item: any;
   label: string;
   route: string;
-  sale?: any;
 }
 
 
-const ProductItem: React.FC<FooterProps> = ({ index, item, route, label, sale }) => {
+const ProductItem: React.FC<FooterProps> = ({ index, item, route, label }) => {
 
   const [isFavorite, setIsFavorite] = useState(item.favorite);
   const navigation = useNavigation();
 
   const handleProduct = () => {
-    navigation.navigate(route, { title: label });
+    navigation.navigate(route, { title: label, item });
   };
 
   const handleToggleFavorite = () => {
-    console.log("handleToggleFavorite");
     setIsFavorite(!isFavorite);
+
     item.favorite = !item.favorite;
-    console.log(item.favorite);
   };
 
   return (
@@ -42,8 +40,8 @@ const ProductItem: React.FC<FooterProps> = ({ index, item, route, label, sale })
           <Card.Text style={{ bottom: 10, right: 10 }} className='position-absolute fw-bold'>{ label }</Card.Text>
         </Card.Body>
       </Card>
-      { sale && <Row style={{ height: '42px', color: '#f8f9fa', backgroundColor: '#161718' }} className="m-1">
-        <h3 className='text-center fw-bold'>{ sale.value }% OFF</h3>
+      { item?.sale && <Row style={{ height: '42px', color: '#f8f9fa', backgroundColor: '#161718' }} className="m-1">
+        <h3 className='text-center fw-bold'>{ item.sale.value }% OFF</h3>
       </Row> }
     </Col>
   );

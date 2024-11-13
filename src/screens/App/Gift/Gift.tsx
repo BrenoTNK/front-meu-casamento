@@ -1,7 +1,6 @@
 
 
-
-const Gift = ({  }) => {
+const Gift = () => {
   return (
     <>
     </>

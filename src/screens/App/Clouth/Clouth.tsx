@@ -1,7 +1,6 @@
 
 
-
-const Clouth = ({  }) => {
+const Clouth = () => {
   return (
     <>
     </>

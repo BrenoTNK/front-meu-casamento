@@ -17,7 +17,7 @@ const FlowerList = () => {
         <Row className="justify-content-center">
           <ProductItem
             index={ 100 }
-            item={{ favorite: false }}
+            item={{ favorite: false, valueUni: 10.50, sale: { value: 30 } }}
             label="Flor 1"
             route="Flower"
           />

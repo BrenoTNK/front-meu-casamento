@@ -8,10 +8,12 @@ import RadioButton from '@components/RadioButtons';
 import SelectButtons from '@components/SelectButtons';
 import Ranger from '@components/Ranger';
 import { useNavigation } from '@react-navigation/native';
+import useAuth from '@src/hooks/useAuth';
 
 
 const FirstForm = () => {
 
+  const { addFirstForm } = useAuth();
   const navigation = useNavigation();
 
   const { control, handleSubmit, watch } = useForm({
@@ -42,6 +44,7 @@ const FirstForm = () => {
   const onSubmit = (data: any) => {
     console.log(data);
     if (page === 3) {
+      addFirstForm(data.person1, data.person2);
       navigation.navigate('Home');
     } else {
       nextPage();
@@ -75,24 +78,6 @@ const FirstForm = () => {
       case 1:
         return (
           <Col className='align-content-center'>
-            <Input
-              control={ control }
-              name="person1"
-              label="Nome do noivo(a)?"
-              className='mb-2'
-              placeholder="Digite o nome do noivo(a)"
-              rules={{ required: 'Noivo(a) é obrigatório!' }}
-            />
-
-            <Input
-              control={ control }
-              name="person2"
-              label="Nome do noivo(a)?"
-              className='mb-2'
-              placeholder="Digite o nome do noivo(a)"
-              rules={{ required: 'Noivo(a) é obrigatório!' }}
-            />
-
             <RadioButton
               control={ control }
               name='party'

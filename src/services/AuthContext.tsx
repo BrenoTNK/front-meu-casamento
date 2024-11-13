@@ -11,6 +11,7 @@ interface User {
 interface AuthContextData {
   signed: boolean;
   user: User | null;
+  addFirstForm(person1: string, person2: string): void;
   login(username: string, password: string): Promise<void>;
   logout(): void;
 }
@@ -30,12 +31,22 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
     }
   }
 
+  function addFirstForm(person1: string, person2: string) {
+    const u = user;
+    if (u) {
+      u.person1 = person1;
+      u.person2 = person2;
+
+      setUser(u);
+    }
+  }
+
   function logout() {
     setUser(null);
   }
 
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, login, logout }}>
+    <AuthContext.Provider value={{ signed: !!user, user, addFirstForm, login, logout }}>
       { children }
     </AuthContext.Provider>
   );

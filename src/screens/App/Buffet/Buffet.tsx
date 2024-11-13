@@ -1,7 +1,7 @@
 
 
 
-const Buffet = ({  }) => {
+const Buffet = () => {
   return (
     <>
     </>
