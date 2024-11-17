@@ -100,7 +100,7 @@ const Clouth = () => {
           <h4 className="fw-bold">R${ formatNumberBR(calcularTotal()) }</h4>
         </Col>
       </Row>
-      <Row className="justify-content-center mt-5">
+      <Row className="justify-content-center mt-5 mb-4">
         <Button className='col-6 fw-bold' size='lg' variant="secondary" onPress={ handleComprar }>Comprar</Button>
       </Row>
     </Container>

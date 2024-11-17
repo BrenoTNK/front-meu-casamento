@@ -29,7 +29,6 @@ export const AppRoutes = () => {
       {/* Footer navigates */}
       <Screen name="Home" component={ Home } options={{ header: () => <Footer icon="Home" /> }} />
       <Screen name="Favorites" component={ Favorites } options={{ header: () => <Footer icon="Favorites" /> }}  />
-
       <Screen name="Sales" component={ Sales } options={{ header: () => <Footer icon="Sales" /> }}  />
       <Screen name="Profile" component={ Profile } options={{ header: () => <Footer icon="Profile" /> }}  />
 
