@@ -16,7 +16,7 @@ const GiftList = () => {
         <Row className="justify-content-center">
           <ProductItem
             index={ 100 }
-            item={{ favorite: true }}
+            item={{ favorite: true, value: 10.50, uni: 'Uni', sale: { value: 30 } }}
             label="Presente"
             route="Gift"
           />

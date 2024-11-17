@@ -1,9 +1,9 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Container, Col, Row } from "react-bootstrap";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import Button from "@components/Button";
 import { formatNumberBR } from "@utils/global";
+import Button from "@components/Button";
 
 
 const Flower = () => {
@@ -32,11 +32,11 @@ const Flower = () => {
 
   const calcularTotal = () => {
     if (flower.sale?.value) {
-      const value = (flower.valueUni * flower.sale.value) / 100;
+      const value = (flower.value * (100 - flower.sale.value)) / 100;
 
       return value * quantity;
     }
-    return flower.valueUni * quantity;
+    return flower.value * quantity;
   };
 
   return (
@@ -62,7 +62,11 @@ const Flower = () => {
           <h4 className="fw-bold d-flex justify-content-between">
             <span><AntDesign name="star" size={ 32 } color="#f0ad4e" />4,5</span>
             <span>
-              <span>R${ formatNumberBR(flower.valueUni) }/Uni</span>
+              <span className={ flower.sale?.value ? "text-danger text-decoration-line-through" : '' }>
+                R${ formatNumberBR(flower.value) }
+              </span>
+              { flower.sale?.value ? ` R$${ formatNumberBR((flower.value * (100 - flower.sale.value)) / 100) }` : '' }
+              /{ flower.uni }
             </span>
           </h4>
         </Col>
@@ -70,7 +74,7 @@ const Flower = () => {
       <hr />
       <Row className="p-2">
         <Col className="d-flex justify-content-between mr-2 ml-2" xs={ 12 } sm={ 12 } md={ 12 } lg={ 12 } xl={ 12 } xxl={ 12 }>
-          <h4 className="fw-bold">quantity</h4>
+          <h4 className="fw-bold">Quantidade</h4>
           <div className="d-flex">
             <AntDesign
               name="minuscircle"

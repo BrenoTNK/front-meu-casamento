@@ -16,7 +16,7 @@ const PartyList = () => {
         <Row className="justify-content-center">
           <ProductItem
             index={ 100 }
-            item={{ favorite: false }}
+            item={{ favorite: false, value: 10.50, uni: 'Uni', sale: { value: 30 } }}
             label="Festa"
             route="Party"
           />
