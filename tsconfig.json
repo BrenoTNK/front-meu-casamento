@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
+    "jsx": "react-native",
     "paths": {
       "@src/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
@@ -13,7 +14,8 @@
       "@screens/*": ["./src/screens/*"],
       "@services/*": ["./src/services/*"],
       "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@utils/*": ["./src/utils/*"]
     }
-  }
+  },
+  "include": ["src", "src/custom.d.ts"]
 }
